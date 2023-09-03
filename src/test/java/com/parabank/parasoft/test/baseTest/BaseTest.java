@@ -1,5 +1,6 @@
 package com.parabank.parasoft.test.baseTest;
 
+import com.parabank.parasoft.test.util.General;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,7 +55,7 @@ public class BaseTest {
 
         driver.get(properties.getProperty("baseUrl"));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(General.PAGE_LOAD_TIME));
     }
 
 
