@@ -22,14 +22,30 @@ public class CustomerLoginTest extends BaseTest {
         super();
     }
 
-    @Test
+    @Test(enabled = false)
     public void loginShouldSucceed() {
         customerLoginPage = new CustomerLoginPage();
 
         overviewPage = customerLoginPage
                 .fillUsername(getUserName())
-                 .fillPassword(getPassword())
+                .fillPassword(getPassword())
                 .clickLoginBtn();
+
+        Assert.assertTrue(overviewPage.isLogoutLinkDisplayed());
+    }
+
+    @Test(priority = 0)
+    public void loginShouldFailOnlyUsername() {
+        customerLoginPage = new CustomerLoginPage()
+                .login(getUserName());
+
+        Assert.assertTrue(customerLoginPage.hasErrorOnlyUsername());
+    }
+
+    @Test(priority = 1)
+    public void loginShouldSuccessUsingLoginMethod(){
+        overviewPage = new CustomerLoginPage()
+                .login(getUserName(), getPassword());
 
         Assert.assertTrue(overviewPage.isLogoutLinkDisplayed());
     }

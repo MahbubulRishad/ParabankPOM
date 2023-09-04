@@ -15,6 +15,9 @@ public class CustomerLoginPage extends BaseTest {
     @FindBy(css = ".login [value=\"Log In\"]")
     WebElement loginBtn;
 
+    @FindBy(css = ".error")
+    WebElement loginErrorEl;
+
     // Initialize locators in this page
     public CustomerLoginPage() {
         PageFactory.initElements(driver, this);
@@ -43,11 +46,28 @@ public class CustomerLoginPage extends BaseTest {
         return new OverviewPage();
     }
 
+    //    Click Login button for only username not filling password
+    public CustomerLoginPage clickLoginBtnOnlyUsername() {
+        loginBtn.isDisplayed();
+        loginBtn.click();
+        return this;
+    }
+
+    public boolean hasErrorOnlyUsername() {
+        return loginErrorEl.isDisplayed();
+    }
+
     public OverviewPage login(String username, String password) {
         fillUsername(username);
         fillPassword(password);
         clickLoginBtn();
         return new OverviewPage();
+    }
+
+    public CustomerLoginPage login(String username) {
+        fillUsername(getUserName());
+        clickLoginBtnOnlyUsername();
+        return this;
     }
 
 }
