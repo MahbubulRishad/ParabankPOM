@@ -9,11 +9,20 @@ public class OverviewPage extends BaseTest {
     @FindBy(xpath = "//a[@href=\"/parabank/logout.htm\"]")
     WebElement logoutLinkEl;
 
+    @FindBy(css = "a[href*='openaccount']")
+    WebElement openNewAccountLinkEl;
+
     public OverviewPage() {
         PageFactory.initElements(driver, this);
     }
 
     public boolean isLogoutLinkDisplayed(){
         return logoutLinkEl.isDisplayed();
+    }
+
+    public OpenAccountPage clickOpenNewAccountLink(){
+        openNewAccountLinkEl.isDisplayed();
+        openNewAccountLinkEl.click();
+        return new OpenAccountPage();
     }
 }
