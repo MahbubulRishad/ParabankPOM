@@ -12,6 +12,9 @@ public class OverviewPage extends BaseTest {
     @FindBy(css = "a[href*='openaccount']")
     WebElement openNewAccountLinkEl;
 
+    @FindBy(css = "a[href*='updateprofile']")
+    WebElement updateContactInfoLinkEl;
+
     public OverviewPage() {
         PageFactory.initElements(driver, this);
     }
@@ -24,5 +27,11 @@ public class OverviewPage extends BaseTest {
         openNewAccountLinkEl.isDisplayed();
         openNewAccountLinkEl.click();
         return new OpenAccountPage();
+    }
+
+    public UpdateContactInfoPage clickUpdateContactInfoLink(){
+        updateContactInfoLinkEl.isDisplayed();
+        updateContactInfoLinkEl.click();
+        return new UpdateContactInfoPage();
     }
 }

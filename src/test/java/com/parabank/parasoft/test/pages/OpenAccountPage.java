@@ -1,6 +1,7 @@
 package com.parabank.parasoft.test.pages;
 
 import com.parabank.parasoft.test.baseTest.BaseTest;
+import com.parabank.parasoft.test.util.General;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +33,7 @@ public class OpenAccountPage extends BaseTest {
     public OpenAccountPage selectAmountTypeDropDown() {
         Select selectAmountTypeDropDown = new Select(amountTypeDropDownEl);
         selectAmountTypeDropDown.selectByIndex(0);
+        General.domStable();
         return this;
     }
 
