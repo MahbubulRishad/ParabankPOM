@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/ParabankPOM">
+        <classes>
+            <class name="com.parabank.parasoft.test.testCases.CustomerLoginTest">
+                <methods>
+                    <include name="loginShouldSucceed"/>
+                    <include name="loginShouldFailOnlyUsername"/>
+                    <include name="loginShouldSuccessUsingLoginMethod"/>
+                </methods>
+            </class>
+            <class name="com.parabank.parasoft.test.testCases.OpenAccountTest">
+                <methods>
+                    <include name="openNewBankAccountShouldSuccessful"/>
+                </methods>
+            </class>
+            <class name="com.parabank.parasoft.test.testCases.UpdateContactInfoTest">
+                <methods>
+                    <include name="profileUpdateShouldSuccessful"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
